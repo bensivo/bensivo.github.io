@@ -7,9 +7,14 @@ module.exports={
         path: path.resolve(__dirname, 'dist')
     },
 
+    resolve:{
+        extensions:['.js','.jsx'],
+    },
+
     module: {
         rules:[
-            { test: /\.js$/, exclude:/node_modules/, loader: 'babel-loader?presets[]=es2015&presets[]=react' }
+            { test: /\.jsx?$/, exclude:/node_modules/, loader: 'babel-loader?presets[]=es2015&presets[]=react' },
+            { test: /\.css$/, loaders: ['style-loader', 'css-loader'] }
         ]
     }
 }
